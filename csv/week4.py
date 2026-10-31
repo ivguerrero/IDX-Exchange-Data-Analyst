@@ -138,7 +138,7 @@ def add_geo_flags(df):
     for flag in geo_flags + ["geo_invalid_flag"]:
         print(f"  {flag}: {df[flag].sum():,} rows ({df[flag].mean() * 100:.3f}%)")
 
-    # could the filled-in coordinate columns repair the missing ones?
+    # Informational: could the filled-in coordinate columns repair the missing ones?
     lat_filled = pd.to_numeric(df["latfilled"], errors="coerce")
     lon_filled = pd.to_numeric(df["lonfilled"], errors="coerce")
     fixable = missing & lat_filled.notnull() & lon_filled.notnull()
